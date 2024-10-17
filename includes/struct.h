@@ -6,7 +6,7 @@
 /*   By: arakotom <arakotom@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 14:37:11 by arakotom          #+#    #+#             */
-/*   Updated: 2024/10/17 17:32:18 by arakotom         ###   ########.fr       */
+/*   Updated: 2024/10/17 18:30:05 by arakotom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,14 @@ struct s_redir_out
 	char *file;
 	t_redir_out_type type;
 	t_redir_out *next;
+};
+
+struct s_prompt
+{
+	t_cmd *cmd;
+	t_redir_in *redir_in_list;
+	t_redir_out *redir_out_list;
+	t_prompt *next;
 };
 
 struct s_msh

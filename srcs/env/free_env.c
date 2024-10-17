@@ -1,20 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   heredoc.h                                          :+:      :+:    :+:   */
+/*   free_env.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arakotom <arakotom@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/17 14:37:03 by arakotom          #+#    #+#             */
-/*   Updated: 2024/10/17 18:08:28 by arakotom         ###   ########.fr       */
+/*   Created: 2024/10/17 17:57:20 by arakotom          #+#    #+#             */
+/*   Updated: 2024/10/17 17:58:50 by arakotom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HEREDOC_H
-#define HEREDOC_H
+#include "../../includes/minishell.h"
 
-t_bool free_heredoc(t_heredoc *heredoc, t_bool val);
-t_bool free_heredoc_list(t_heredoc **list, t_bool val);
-t_bool free_heredoc_keep_file(t_heredoc *heredoc, t_bool val);
-t_bool free_heredoc_list_keep_file(t_heredoc **list, t_bool val);
-#endif
+t_bool free_env(t_env *env, t_bool val)
+{
+	if (env->name)
+		free(env->name);
+	if (env->value)
+		free(env->value);
+	free(env);
+	return (val);
+}
+
+t_bool free_env_list(t_env **list, t_bool val)
+{
+	t_env *env;
+
+	while (list && *list)
+	{
+		env = *list;
+		*list = (*list)->next;
+		free_env(env, val);
+	}
+	*list = NULL;
+	return (val);
+}

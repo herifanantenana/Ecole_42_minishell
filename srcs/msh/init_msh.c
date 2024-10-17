@@ -1,20 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   heredoc.h                                          :+:      :+:    :+:   */
+/*   init_msh.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arakotom <arakotom@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/17 14:37:03 by arakotom          #+#    #+#             */
-/*   Updated: 2024/10/17 18:08:28 by arakotom         ###   ########.fr       */
+/*   Created: 2024/10/17 17:38:54 by arakotom          #+#    #+#             */
+/*   Updated: 2024/10/17 17:45:23 by arakotom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HEREDOC_H
-#define HEREDOC_H
+#include "../../includes/minishell.h"
 
-t_bool free_heredoc(t_heredoc *heredoc, t_bool val);
-t_bool free_heredoc_list(t_heredoc **list, t_bool val);
-t_bool free_heredoc_keep_file(t_heredoc *heredoc, t_bool val);
-t_bool free_heredoc_list_keep_file(t_heredoc **list, t_bool val);
-#endif
+void init_msh_OK(int argc, char *argv[], t_msh *msh)
+{
+	(void)argc;
+	(void)argv;
+	msh->exit_status = EXIT_SUCCESS;
+	msh->input = NULL;
+	msh->env_list = NULL;
+	msh->heredoc_list = NULL;
+	msh->prompt_list = NULL;
+}
