@@ -6,13 +6,13 @@
 /*   By: arakotom <arakotom@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 18:00:32 by arakotom          #+#    #+#             */
-/*   Updated: 2024/10/17 18:07:33 by arakotom         ###   ########.fr       */
+/*   Updated: 2024/10/20 21:21:38 by arakotom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-t_bool free_heredoc(t_heredoc *heredoc, t_bool val)
+t_bool	free_heredoc(t_heredoc *heredoc, t_bool val)
 {
 	if (heredoc->eof)
 		free(heredoc->eof);
@@ -25,9 +25,9 @@ t_bool free_heredoc(t_heredoc *heredoc, t_bool val)
 	return (val);
 }
 
-t_bool free_heredoc_list(t_heredoc **list, t_bool val)
+t_bool	free_heredoc_list(t_heredoc **list, t_bool val)
 {
-	t_heredoc *heredoc;
+	t_heredoc	*heredoc;
 
 	while (list && *list)
 	{
@@ -39,7 +39,7 @@ t_bool free_heredoc_list(t_heredoc **list, t_bool val)
 	return (val);
 }
 
-t_bool free_heredoc_keep_file(t_heredoc *heredoc, t_bool val)
+t_bool	free_heredoc_keep_file(t_heredoc *heredoc, t_bool val)
 {
 	if (heredoc->eof)
 		free(heredoc->eof);
@@ -49,9 +49,9 @@ t_bool free_heredoc_keep_file(t_heredoc *heredoc, t_bool val)
 	return (val);
 }
 
-t_bool free_heredoc_list_keep_file(t_heredoc **list, t_bool val)
+t_bool	free_heredoc_list_keep_file(t_heredoc **list, t_bool val)
 {
-	t_heredoc *heredoc;
+	t_heredoc	*heredoc;
 
 	while (list && *list)
 	{

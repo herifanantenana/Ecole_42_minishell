@@ -6,15 +6,15 @@
 /*   By: arakotom <arakotom@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 10:51:13 by arakotom          #+#    #+#             */
-/*   Updated: 2024/10/20 11:26:31 by arakotom         ###   ########.fr       */
+/*   Updated: 2024/10/20 21:21:48 by arakotom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-t_bool is_trimmed(char *line)
+t_bool	is_trimmed(char *line)
 {
-	int i_end;
+	int	i_end;
 
 	i_end = ft_strlen(line) - 1;
 	if (!i_end)
@@ -30,11 +30,11 @@ t_bool is_trimmed(char *line)
 	return (TRUE);
 }
 
-char *trim_space_out(char *line)
+char	*trim_space_out(char *line)
 {
-	char *new_line;
-	int i_end;
-	int i_start;
+	char	*new_line;
+	int		i_end;
+	int		i_start;
 
 	i_end = ft_strlen(line) - 1;
 	if (!i_end)
@@ -50,10 +50,10 @@ char *trim_space_out(char *line)
 	return (new_line);
 }
 
-int trim_in_len(char *line)
+int	trim_in_len(char *line)
 {
-	int len;
-	t_quote quote;
+	int		len;
+	t_quote	quote;
 
 	len = 0;
 	init_quote(&quote);
@@ -72,12 +72,12 @@ int trim_in_len(char *line)
 	return (len);
 }
 
-char *trim_space_in(char *line)
+char	*trim_space_in(char *line)
 {
-	char *new_line;
-	t_quote quote;
-	int i;
-	int j;
+	char	*new_line;
+	t_quote	quote;
+	int		i;
+	int		j;
 
 	i = 0;
 	j = 0;
@@ -98,10 +98,10 @@ char *trim_space_in(char *line)
 	return (new_line);
 }
 
-char *trim_space_all(char *line)
+char	*trim_space_all(char *line)
 {
-	char *line_tmp;
-	char *new_line;
+	char	*line_tmp;
+	char	*new_line;
 
 	if (!line)
 		return (NULL);

@@ -6,13 +6,13 @@
 /*   By: arakotom <arakotom@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 11:00:22 by arakotom          #+#    #+#             */
-/*   Updated: 2024/10/20 11:00:25 by arakotom         ###   ########.fr       */
+/*   Updated: 2024/10/20 21:22:22 by arakotom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/minishell.h"
 
-void handle_sigint(int sig)
+void	handle_sigint(int sig)
 {
 	(void)sig;
 	write(1, "\n", 1);
@@ -21,10 +21,10 @@ void handle_sigint(int sig)
 	rl_redisplay();
 }
 
-void set_signal_handler(void)
+void	set_signal_handler(void)
 {
-	struct sigaction sa_int;
-	struct sigaction sa_quit;
+	struct sigaction	sa_int;
+	struct sigaction	sa_quit;
 
 	sigemptyset(&sa_int.sa_mask);
 	sa_int.sa_flags = 0;

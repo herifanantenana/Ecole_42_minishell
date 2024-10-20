@@ -6,13 +6,13 @@
 /*   By: arakotom <arakotom@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 10:28:44 by arakotom          #+#    #+#             */
-/*   Updated: 2024/10/20 21:17:08 by arakotom         ###   ########.fr       */
+/*   Updated: 2024/10/20 21:26:54 by arakotom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-t_bool	get_input_line_OK(t_msh *msh)
+t_bool	get_input_line_ok(t_msh *msh)
 {
 	char	*line;
 
@@ -43,7 +43,7 @@ void	set_exit_status_msh_stx(t_msh *msh, t_error_state exit_status,
 		if (WEXITSTATUS(exit_status) != NOTHING)
 		{
 			*has_err = TRUE;
-			msh->exit_status = 2; //* exit code on syntax error
+			msh->exit_status = 2;
 		}
 	}
 	else if (WIFSIGNALED(exit_status))
@@ -58,7 +58,6 @@ void	run_syntax_validation(t_msh *msh)
 	t_error_state	error;
 
 	error = check_syntax_validation(msh->input);
-		//! change to syntax validation function
 	free_msh(msh, TRUE);
 	if (error == NOTHING)
 		exit(EXIT_SUCCESS);
@@ -66,7 +65,7 @@ void	run_syntax_validation(t_msh *msh)
 	exit(error);
 }
 
-t_bool	syntax_input_Ok(t_msh *msh)
+t_bool	syntax_input_ok(t_msh *msh)
 {
 	pid_t	pid_stx;
 	int		exit_status_stx;

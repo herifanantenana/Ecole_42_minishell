@@ -6,15 +6,15 @@
 /*   By: arakotom <arakotom@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 17:46:04 by arakotom          #+#    #+#             */
-/*   Updated: 2024/10/20 10:20:04 by arakotom         ###   ########.fr       */
+/*   Updated: 2024/10/20 21:25:25 by arakotom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-t_env *new_env(void)
+t_env	*new_env(void)
 {
-	t_env *env;
+	t_env	*env;
 
 	env = (t_env *)malloc(sizeof(t_env));
 	if (!env)
@@ -25,10 +25,10 @@ t_env *new_env(void)
 	return (env);
 }
 
-t_env *create_env(char *str)
+t_env	*create_env(char *str)
 {
-	t_env *env;
-	char *char_equal;
+	t_env	*env;
+	char	*char_equal;
 
 	env = new_env();
 	if (!env || !str || !(*str))
@@ -41,9 +41,9 @@ t_env *create_env(char *str)
 	return (env);
 }
 
-void add_env_list(t_env **list, t_env *env)
+void	add_env_list(t_env **list, t_env *env)
 {
-	t_env *last;
+	t_env	*last;
 
 	if (!(*list))
 		*list = env;
@@ -56,10 +56,10 @@ void add_env_list(t_env **list, t_env *env)
 	}
 }
 
-t_bool dup_envp_OK(t_msh *msh, char *envp[])
+t_bool	dup_envp_ok(t_msh *msh, char *envp[])
 {
-	t_env *list;
-	t_env *env;
+	t_env	*list;
+	t_env	*env;
 
 	if (!(*envp))
 		return (FALSE);
