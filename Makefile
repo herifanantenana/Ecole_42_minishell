@@ -6,7 +6,7 @@
 #    By: arakotom <arakotom@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/24 23:57:27 by arakotom          #+#    #+#              #
-#    Updated: 2024/10/20 11:23:12 by arakotom         ###   ########.fr        #
+#    Updated: 2024/10/20 12:54:06 by arakotom         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,10 +26,12 @@ SRCS = main.c \
 		env/free_env.c \
 		msh/init_msh.c \
 		msh/free_msh.c \
+		msh/err_msh.c \
 		heredoc/free_heredoc.c \
 		input/init_input.c \
 		input/input_utils.c \
 		input/input_trim.c \
+		input/err_input.c \
 		prompt/free_prompt.c \
 		prompt/free_prompt_struct.c
 

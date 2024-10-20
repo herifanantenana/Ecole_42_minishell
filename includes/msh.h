@@ -6,7 +6,7 @@
 /*   By: arakotom <arakotom@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 14:37:08 by arakotom          #+#    #+#             */
-/*   Updated: 2024/10/20 11:18:58 by arakotom         ###   ########.fr       */
+/*   Updated: 2024/10/20 12:55:33 by arakotom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,4 +20,8 @@ void run_msh(t_msh *msh);
 t_bool free_msh(t_msh *msh, t_bool val);
 t_bool free_msh_keep_file(t_msh *msh, t_bool val);
 t_bool free_msh_reset(t_msh *msh, t_bool val);
+//*err_msh
+t_bool reset_msh_err_get_input_line(t_msh *msh, t_bool val);
+void exit_err_fork(t_msh *msh);
+
 #endif

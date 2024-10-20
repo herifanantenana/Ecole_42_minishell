@@ -6,17 +6,16 @@
 /*   By: arakotom <arakotom@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 10:28:44 by arakotom          #+#    #+#             */
-/*   Updated: 2024/10/20 11:08:27 by arakotom         ###   ########.fr       */
+/*   Updated: 2024/10/20 13:04:15 by arakotom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-char *get_input_line(t_msh *msh)
+t_bool get_input_line_OK(t_msh *msh)
 {
 
 	char *line;
-	char *input;
 
 	while (42)
 	{
@@ -27,9 +26,59 @@ char *get_input_line(t_msh *msh)
 		if (is_empty_str(line))
 			continue;
 		add_history(line);
-		input = trim_space_all(line);
-		free(line);
 		break;
 	}
-	return (input);
+	msh->input = trim_space_all(line);
+	free(line);
+	if (!(msh->input))
+		return (reset_msh_err_get_input_line(msh, FALSE));
+	return (TRUE);
+}
+
+void set_exit_status_msh_stx(t_msh *msh, t_error_state exit_status, t_bool *has_err)
+{
+	*has_err = FALSE;
+	if (WIFEXITED(exit_status))
+	{
+		if (WEXITSTATUS(exit_status) != NOTHING)
+		{
+			*has_err = TRUE;
+			msh->exit_status = 2; //* exit code on syntax error
+		}
+	}
+	else if (WIFSIGNALED(exit_status))
+	{
+		*has_err = TRUE;
+		msh->exit_status = WTERMSIG(exit_status);
+	}
+}
+
+void run_syntax_validation(t_msh *msh)
+{
+	t_error_state error;
+
+	error = NOTHING; //! change to syntax validation function
+	free_msh(msh, TRUE);
+	if (error == NOTHING)
+		exit(EXIT_SUCCESS);
+	print_err_stx(error);
+	exit(error);
+}
+
+t_bool syntax_input_Ok(t_msh *msh)
+{
+	pid_t pid_stx;
+	int exit_status_stx;
+	t_bool has_err;
+
+	pid_stx = fork();
+	if (pid_stx < 0)
+		exit_err_fork(msh);
+	else if (pid_stx == 0)
+		run_syntax_validation(msh);
+	waitpid(pid_stx, &exit_status_stx, 0);
+	set_exit_status_msh_stx(msh, exit_status_stx, &has_err);
+	if (has_err)
+		return (free_msh_reset(msh, FALSE));
+	return (TRUE);
 }
