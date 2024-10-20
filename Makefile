@@ -6,7 +6,7 @@
 #    By: arakotom <arakotom@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/24 23:57:27 by arakotom          #+#    #+#              #
-#    Updated: 2024/10/17 18:27:20 by arakotom         ###   ########.fr        #
+#    Updated: 2024/10/20 11:23:12 by arakotom         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,11 +20,16 @@ INCLUDE_DIR = includes
 LIBFT_DIR = libft
 
 SRCS = main.c \
+		quotes.c \
+		signals.c \
 		env/init_env.c \
 		env/free_env.c \
 		msh/init_msh.c \
 		msh/free_msh.c \
 		heredoc/free_heredoc.c \
+		input/init_input.c \
+		input/input_utils.c \
+		input/input_trim.c \
 		prompt/free_prompt.c \
 		prompt/free_prompt_struct.c
 

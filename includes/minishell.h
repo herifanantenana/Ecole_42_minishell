@@ -6,7 +6,7 @@
 /*   By: arakotom <arakotom@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 14:35:14 by arakotom          #+#    #+#             */
-/*   Updated: 2024/10/17 14:40:29 by arakotom         ###   ########.fr       */
+/*   Updated: 2024/10/20 11:00:52 by arakotom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,14 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <unistd.h>
+
+t_bool is_quote(char c);
+void init_quote(t_quote *quote);
+t_bool quote_opened(t_quote quote);
+t_bool quote_closed(t_quote quote);
+void update_quote(char c, t_quote *quote);
+
+void handle_sigint(int sig);
+void set_signal_handler(void);
 
 #endif

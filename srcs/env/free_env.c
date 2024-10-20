@@ -6,7 +6,7 @@
 /*   By: arakotom <arakotom@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 17:57:20 by arakotom          #+#    #+#             */
-/*   Updated: 2024/10/17 17:58:50 by arakotom         ###   ########.fr       */
+/*   Updated: 2024/10/20 10:20:32 by arakotom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,11 @@ t_bool free_env_list(t_env **list, t_bool val)
 	}
 	*list = NULL;
 	return (val);
+}
+
+void exit_err_dup_env(t_msh *msh)
+{
+	ft_putstr_fd("msh: environment variables not found\n", STDERR_FILENO);
+	free_msh(msh, TRUE);
+	exit(EXIT_FAILURE);
 }
