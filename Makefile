@@ -6,7 +6,7 @@
 #    By: arakotom <arakotom@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/24 23:57:27 by arakotom          #+#    #+#              #
-#    Updated: 2024/10/20 21:22:31 by arakotom         ###   ########.fr        #
+#    Updated: 2024/10/20 23:32:59 by arakotom         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,13 @@ SRCS = main.c \
 		input/input_trim.c \
 		input/syntax_validation.c \
 		input/err_input.c \
+		heredoc/init_heredoc.c \
+		heredoc/err_heredoc.c \
+		heredoc/free_heredoc.c \
+		heredoc/heredoc_expander.c \
+		heredoc/heredoc_initializer.c \
+		heredoc/heredoc_utils.c \
+		heredoc/parser_heredoc.c \
 		prompt/free_prompt.c \
 		prompt/free_prompt_struct.c
 

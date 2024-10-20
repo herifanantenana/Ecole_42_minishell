@@ -6,7 +6,7 @@
 /*   By: arakotom <arakotom@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 10:51:13 by arakotom          #+#    #+#             */
-/*   Updated: 2024/10/20 21:21:48 by arakotom         ###   ########.fr       */
+/*   Updated: 2024/10/20 23:53:27 by arakotom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_bool	is_trimmed(char *line)
 	int	i_end;
 
 	i_end = ft_strlen(line) - 1;
-	if (!i_end)
+	if (i_end < 0)
 		return (FALSE);
 	if (ft_isspace(line[0]) || ft_isspace(line[i_end]))
 		return (FALSE);
@@ -37,14 +37,14 @@ char	*trim_space_out(char *line)
 	int		i_start;
 
 	i_end = ft_strlen(line) - 1;
-	if (!i_end)
+	if (i_end < 0)
 		return (NULL);
 	i_start = 0;
 	while (i_start < i_end && ft_isspace(line[i_start]))
 		i_start++;
 	while (i_start < i_end && ft_isspace(line[i_end]))
 		i_end--;
-	if (i_start >= i_end)
+	if (i_start > i_end)
 		return (NULL);
 	new_line = ft_substr(line, i_start, (i_end + 1 - i_start));
 	return (new_line);

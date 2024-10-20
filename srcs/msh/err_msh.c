@@ -6,7 +6,7 @@
 /*   By: arakotom <arakotom@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 12:07:03 by arakotom          #+#    #+#             */
-/*   Updated: 2024/10/20 21:21:58 by arakotom         ###   ########.fr       */
+/*   Updated: 2024/10/20 23:46:48 by arakotom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_bool	reset_msh_err_get_input_line(t_msh *msh, t_bool val)
 {
-	ft_putstr_fd("msh: error getting input line", STDERR_FILENO);
+	ft_putstr_fd("msh: error getting input line\n", STDERR_FILENO);
 	free_msh_reset(msh, val);
 	return (val);
 }

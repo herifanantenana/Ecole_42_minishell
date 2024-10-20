@@ -6,7 +6,7 @@
 /*   By: arakotom <arakotom@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 17:38:54 by arakotom          #+#    #+#             */
-/*   Updated: 2024/10/20 21:29:10 by arakotom         ###   ########.fr       */
+/*   Updated: 2024/10/20 23:33:50 by arakotom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ void	run_msh(t_msh *msh)
 		if (!get_input_line_ok(msh))
 			continue ;
 		if (!syntax_input_ok(msh))
+			continue ;
+		if (!heredoc_parse_input_ok(msh))
 			continue ;
 		printf("->%s\n", msh->input);
 		free_msh_reset(msh, TRUE);
