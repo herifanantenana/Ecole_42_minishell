@@ -31,6 +31,7 @@ SRCS = main.c \
 		input/init_input.c \
 		input/input_utils.c \
 		input/input_trim.c \
+		input/syntax_validation.c \
 		input/err_input.c \
 		prompt/free_prompt.c \
 		prompt/free_prompt_struct.c

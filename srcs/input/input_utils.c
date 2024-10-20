@@ -28,19 +28,19 @@ t_bool is_redir(char c)
 	return (c == '<' || c == '>');
 }
 
-t_bool is_redir_valid(char **line)
+t_bool is_redir_valid(char **input)
 {
-	if (is_redir(*(*line + 1)))
+	if (is_redir(*(*input + 1)))
 	{
-		if (*(*line + 1) == **line)
-			*line += 1;
+		if (*(*input + 1) == **input)
+			*input += 1;
 		else
 			return (FALSE);
 	}
-	*line += 1;
-	while (*line && ft_isspace(**line))
-		(*line)++;
-	if (**line == '\0' || is_redir(**line) || **line == '|')
+	*input += 1;
+	while (*input && ft_isspace(**input))
+		(*input)++;
+	if (**input == '\0' || is_redir(**input) || **input == '|')
 		return (FALSE);
 	return (TRUE);
 }

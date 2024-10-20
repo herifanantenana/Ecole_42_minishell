@@ -6,16 +6,15 @@
 /*   By: arakotom <arakotom@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 10:28:44 by arakotom          #+#    #+#             */
-/*   Updated: 2024/10/20 13:04:15 by arakotom         ###   ########.fr       */
+/*   Updated: 2024/10/20 21:17:08 by arakotom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/minishell.h"
 
-t_bool get_input_line_OK(t_msh *msh)
+t_bool	get_input_line_OK(t_msh *msh)
 {
-
-	char *line;
+	char	*line;
 
 	while (42)
 	{
@@ -24,9 +23,9 @@ t_bool get_input_line_OK(t_msh *msh)
 		if (line == NULL)
 			exit_msh_eof(msh);
 		if (is_empty_str(line))
-			continue;
+			continue ;
 		add_history(line);
-		break;
+		break ;
 	}
 	msh->input = trim_space_all(line);
 	free(line);
@@ -35,7 +34,8 @@ t_bool get_input_line_OK(t_msh *msh)
 	return (TRUE);
 }
 
-void set_exit_status_msh_stx(t_msh *msh, t_error_state exit_status, t_bool *has_err)
+void	set_exit_status_msh_stx(t_msh *msh, t_error_state exit_status,
+		t_bool *has_err)
 {
 	*has_err = FALSE;
 	if (WIFEXITED(exit_status))
@@ -53,11 +53,12 @@ void set_exit_status_msh_stx(t_msh *msh, t_error_state exit_status, t_bool *has_
 	}
 }
 
-void run_syntax_validation(t_msh *msh)
+void	run_syntax_validation(t_msh *msh)
 {
-	t_error_state error;
+	t_error_state	error;
 
-	error = NOTHING; //! change to syntax validation function
+	error = check_syntax_validation(msh->input);
+		//! change to syntax validation function
 	free_msh(msh, TRUE);
 	if (error == NOTHING)
 		exit(EXIT_SUCCESS);
@@ -65,11 +66,11 @@ void run_syntax_validation(t_msh *msh)
 	exit(error);
 }
 
-t_bool syntax_input_Ok(t_msh *msh)
+t_bool	syntax_input_Ok(t_msh *msh)
 {
-	pid_t pid_stx;
-	int exit_status_stx;
-	t_bool has_err;
+	pid_t	pid_stx;
+	int		exit_status_stx;
+	t_bool	has_err;
 
 	pid_stx = fork();
 	if (pid_stx < 0)
