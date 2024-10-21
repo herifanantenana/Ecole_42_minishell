@@ -6,7 +6,7 @@
 /*   By: arakotom <arakotom@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 14:36:59 by arakotom          #+#    #+#             */
-/*   Updated: 2024/10/20 21:20:00 by arakotom         ###   ########.fr       */
+/*   Updated: 2024/10/21 09:28:15 by arakotom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 typedef enum e_bool				t_bool;
 typedef enum e_quote_state		t_quote_state;
 typedef enum e_error_state		t_error_state;
-typedef enum e_token_type		t_redir_type;
+typedef enum e_token_type		t_token_type;
 typedef enum e_redir_out_type	t_redir_out_type;
 
 enum							e_bool

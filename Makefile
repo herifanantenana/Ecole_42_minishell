@@ -6,7 +6,7 @@
 #    By: arakotom <arakotom@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/24 23:57:27 by arakotom          #+#    #+#              #
-#    Updated: 2024/10/20 23:32:59 by arakotom         ###   ########.fr        #
+#    Updated: 2024/10/21 10:19:35 by arakotom         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,15 @@ SRCS = main.c \
 		heredoc/heredoc_utils.c \
 		heredoc/parser_heredoc.c \
 		prompt/free_prompt.c \
-		prompt/free_prompt_struct.c
+		prompt/free_prompt_struct.c \
+		prompt/init_prompt.c \
+		prompt/prompt_split_pipe.c \
+		prompt/prompt_utils.c \
+		prompt/prompt_cmd_token.c \
+		prompt/prompt_redir_in_token.c \
+		prompt/prompt_redir_out_token.c \
+		prompt/print_prompt.c
+
 
 
 OBJS = $(addprefix $(OBJ_DIR)/, $(SRCS:.c=.o))
