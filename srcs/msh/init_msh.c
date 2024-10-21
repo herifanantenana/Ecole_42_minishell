@@ -6,7 +6,7 @@
 /*   By: arakotom <arakotom@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/17 17:38:54 by arakotom          #+#    #+#             */
-/*   Updated: 2024/10/21 10:35:55 by arakotom         ###   ########.fr       */
+/*   Updated: 2024/10/21 15:25:17 by arakotom         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void init_msh_ok(int argc, char *argv[], t_msh *msh)
 {
 	(void)argc;
 	(void)argv;
+	msh->std_in = dup(STDIN_FILENO);
+	msh->std_out = dup(STDOUT_FILENO);
 	msh->exit_status = EXIT_SUCCESS;
 	msh->input = NULL;
 	msh->env_list = NULL;
@@ -43,8 +45,9 @@ void run_msh(t_msh *msh)
 			continue;
 		if (!parse_token_prompt_ok(msh))
 			continue;
-		printf("->%s\n", msh->input);
-		print_prompts(msh->prompt_list);
-		free_msh_reset(msh, TRUE);
+		// printf("->%s\n", msh->input);
+		// print_prompts(msh->prompt_list);
+		// free_msh_reset(msh, TRUE);
+		execute_msh(msh);
 	}
 }

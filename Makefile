@@ -6,7 +6,7 @@
 #    By: arakotom <arakotom@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/24 23:57:27 by arakotom          #+#    #+#              #
-#    Updated: 2024/10/21 10:19:35 by arakotom         ###   ########.fr        #
+#    Updated: 2024/10/21 15:34:20 by arakotom         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,13 @@ SRCS = main.c \
 		prompt/prompt_cmd_token.c \
 		prompt/prompt_redir_in_token.c \
 		prompt/prompt_redir_out_token.c \
-		prompt/print_prompt.c
+		prompt/print_prompt.c \
+		execution/init_execute.c \
+		execution/execute_utils.c \
+		execution/execute_cmd.c \
+		execution/execute_set_redir.c \
+		execution/execute_list_prompt.c \
+		execution/execute_one_prompt.c
 
 
 
